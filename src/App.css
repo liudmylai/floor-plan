@@ -4,9 +4,9 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: calc(50vh - 375px) calc(50vw - 375px); 
+  padding: 5vh calc(50vw - 45vh);
 }
-.App:before {
+.App::before {
   content: '';
   background-color: #000;
   opacity: 0.5;
@@ -17,14 +17,15 @@
   right: 0;
 }
 .floor-plan {
-  width: 750px;  
+  width: 90vh;
+  height: 90vh;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 3vh;
   color: #fff;
   font-weight: bold;
   display: grid;
-  grid-auto-rows: 150px;
-  grid-auto-columns: 150px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   grid-template-areas: 
     'b1 b1 lv lv kt'
     'b1 b1 lv lv kt'
@@ -40,7 +41,7 @@
   align-content: flex-start;
   align-items: center;
 }
-.room:hover:before {
+.room:hover::before {
   content:'';
   width: 100%;
   position: absolute;
@@ -85,7 +86,7 @@
 }
 .item {
   width: 50%;
-  min-height: 50px;
+  min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,4 +96,18 @@
 }
 .sink {
   background-color: #935613;
+}
+
+@media (orientation: portrait) {
+  .App {
+    padding: calc(50vh - 45vw) 5vw;
+  }
+  .floor-plan {
+    width: 90vw;
+    height: 90vw;
+    font-size: 3vw;
+  }
+  .item {
+    min-height: 10vw;
+  }
 }
